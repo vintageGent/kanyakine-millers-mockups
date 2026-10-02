@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kanyakine Millers - 5 Website Mockup Concepts & Client Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0f172a; color: #f8fafc; }
+    .device-preview { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+  </style>
+</head>
+<body class="antialiased selection:bg-amber-400 selection:text-slate-950">
+
+  <!-- TOP CLIENT PRESENTATION HEADER -->
+  <header class="bg-slate-900 border-b border-slate-800 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-3">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-emerald-500 flex items-center justify-center text-slate-950 text-xl font-black shadow-md">
+          <i class="fa-solid fa-wheat-awn"></i>
+        </div>
+        <div>
+          <h1 class="text-base font-black text-white uppercase tracking-tight">Kanyakine Millers • Client Presentation</h1>
+          <p class="text-[11px] text-slate-400 font-semibold">5 Design Mockup Concepts for Tuesday Launch</p>
+        </div>
+      </div>
+
+      <!-- Device Viewport Switcher -->
+      <div class="flex items-center bg-slate-800 p-1 rounded-xl border border-slate-700 text-xs font-bold">
+        <button onclick="setViewport('desktop')" id="btn-desktop" class="px-3 py-1.5 rounded-lg bg-emerald-500 text-slate-950 flex items-center gap-1.5 transition">
+          <i class="fa-solid fa-desktop"></i> <span class="hidden sm:inline">Desktop</span>
+        </button>
+        <button onclick="setViewport('tablet')" id="btn-tablet" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white flex items-center gap-1.5 transition">
+          <i class="fa-solid fa-tablet-screen-button"></i> <span class="hidden sm:inline">Tablet</span>
+        </button>
+        <button onclick="setViewport('mobile')" id="btn-mobile" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white flex items-center gap-1.5 transition">
+          <i class="fa-solid fa-mobile-screen"></i> <span class="hidden sm:inline">Mobile</span>
+        </button>
+      </div>
+
+      <!-- Quick Action / BOQ Modal Button -->
+      <div class="flex items-center gap-2">
+        <a href="#boq-section" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs px-3.5 py-2 rounded-xl transition shadow flex items-center gap-1.5">
+          <i class="fa-solid fa-file-invoice-dollar"></i>
+          <span>View Website BOQ</span>
+        </a>
+        <button onclick="openCurrentFullscreen()" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-bold text-xs px-3 py-2 rounded-xl transition" title="Open active mockup in new full tab">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOCKUP TABS SWITCHER -->
+  <div class="bg-slate-900/60 border-b border-slate-800/80 px-4 py-2.5">
+    <div class="max-w-7xl mx-auto flex items-center gap-2 overflow-x-auto scrollbar-none py-1">
+      <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mr-2 whitespace-nowrap">
+        Choose Concept:
+      </span>
+
+      <button onclick="switchMockup('mockup1.html', this)" class="mockup-tab px-3.5 py-1.5 rounded-xl text-xs font-black bg-emerald-500 text-slate-950 whitespace-nowrap transition flex items-center gap-1.5">
+        <span class="w-5 h-5 rounded-full bg-slate-950 text-emerald-400 flex items-center justify-center text-[10px]">1</span>
+        <span>Modern Agri-Commerce</span>
+      </button>
+
+      <button onclick="switchMockup('mockup2.html', this)" class="mockup-tab px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-slate-200 whitespace-nowrap transition flex items-center gap-1.5">
+        <span class="w-5 h-5 rounded-full bg-slate-700 text-amber-400 flex items-center justify-center text-[10px]">2</span>
+        <span>Heritage & Organic</span>
+      </button>
+
+      <button onclick="switchMockup('mockup3.html', this)" class="mockup-tab px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-slate-200 whitespace-nowrap transition flex items-center gap-1.5">
+        <span class="w-5 h-5 rounded-full bg-slate-700 text-blue-400 flex items-center justify-center text-[10px]">3</span>
+        <span>B2B Institutional Hub</span>
+      </button>
+
+      <button onclick="switchMockup('mockup4.html', this)" class="mockup-tab px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-slate-200 whitespace-nowrap transition flex items-center gap-1.5">
+        <span class="w-5 h-5 rounded-full bg-slate-700 text-red-400 flex items-center justify-center text-[10px]">4</span>
+        <span>Community Kiosk</span>
+      </button>
+
+      <button onclick="switchMockup('mockup5.html', this)" class="mockup-tab px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-slate-200 whitespace-nowrap transition flex items-center gap-1.5">
+        <span class="w-5 h-5 rounded-full bg-slate-700 text-emerald-400 flex items-center justify-center text-[10px]">5</span>
+        <span>Smart Agri-Tech</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- INTERACTIVE DEVICE PREVIEW STAGE -->
+  <main class="py-6 px-4">
+    <div class="max-w-7xl mx-auto flex flex-col items-center">
+      
+      <!-- Live Preview Container Frame -->
+      <div id="previewWrapper" class="device-preview w-full h-[760px] bg-slate-950 border-4 border-slate-800 rounded-3xl overflow-hidden shadow-2xl relative flex flex-col">
+        
+        <!-- Mock Browser Top Header -->
+        <div class="bg-slate-900 border-b border-slate-800 px-4 py-2 flex items-center justify-between text-xs text-slate-400 select-none">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+            <span id="activeUrlLabel" class="ml-2 font-mono text-[11px] text-slate-300 bg-slate-950 px-3 py-1 rounded-md border border-slate-800">
+              kanyakinemillers.co.ke/concept-1-agri-commerce
+            </span>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <button onclick="reloadIframe()" class="hover:text-white" title="Reload mockup"><i class="fa-solid fa-rotate-right"></i></button>
+            <button onclick="openCurrentFullscreen()" class="hover:text-white flex items-center gap-1 text-[11px] font-bold text-amber-400">
+              <span>Open Fullscreen</span> <i class="fa-solid fa-external-link text-xs"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- The Live Mockup Iframe -->
+        <iframe id="mockupIframe" src="mockup1.html" class="w-full flex-1 border-0 bg-white" title="Live Posho Mill Mockup Preview"></iframe>
+      </div>
+
+      <p class="text-xs text-slate-400 mt-3 text-center">
+        💡 <strong class="text-slate-200">Interactive Preview:</strong> You can click the buttons, test the calculators, and switch between Desktop, Tablet, and Mobile views above!
+      </p>
+
+    </div>
+  </main>
+
+  <!-- MOCKUP COMPARISON GRID -->
+  <section class="max-w-7xl mx-auto px-4 py-12 border-t border-slate-800">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <span class="text-amber-400 font-black text-xs uppercase tracking-widest bg-amber-400/10 border border-amber-400/30 px-3.5 py-1 rounded-full">Client Selection Guide</span>
+      <h2 class="text-2xl sm:text-3xl font-black text-white mt-2">Which Design Fits Kanyakine Millers Best?</h2>
+      <p class="text-slate-400 text-xs mt-1">Review the strengths of each concept before choosing your launch theme for Tuesday.</p>
+    </div>
+
+    <div class="grid md:grid-cols-5 gap-4">
+      <!-- C1 -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between hover:border-emerald-500/50 transition">
+        <div>
+          <span class="text-[10px] font-black uppercase text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded">Concept 1</span>
+          <h3 class="font-extrabold text-sm text-white mt-2">Modern Agri-Commerce</h3>
+          <p class="text-[11px] text-slate-400 mt-1">E-commerce layout with pack selector, M-Pesa Till, and instant WhatsApp ordering cart.</p>
+          <div class="mt-3 text-[10px] text-emerald-300 font-semibold">★ Recommended for Fast Sales</div>
+        </div>
+        <button onclick="switchMockup('mockup1.html', document.querySelectorAll('.mockup-tab')[0])" class="mt-4 w-full bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 text-white font-bold py-2 rounded-xl text-xs transition">
+          Preview Concept 1
+        </button>
+      </div>
+
+      <!-- C2 -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between hover:border-amber-500/50 transition">
+        <div>
+          <span class="text-[10px] font-black uppercase text-amber-400 bg-amber-950 px-2 py-0.5 rounded">Concept 2</span>
+          <h3 class="font-extrabold text-sm text-white mt-2">Heritage & Organic</h3>
+          <p class="text-[11px] text-slate-400 mt-1">Warm earthy tones emphasizing fiber health benefits of Grade 2 Kangata and authentic Muthikore.</p>
+          <div class="mt-3 text-[10px] text-amber-300 font-semibold">★ Great for Health Branding</div>
+        </div>
+        <button onclick="switchMockup('mockup2.html', document.querySelectorAll('.mockup-tab')[1])" class="mt-4 w-full bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-white font-bold py-2 rounded-xl text-xs transition">
+          Preview Concept 2
+        </button>
+      </div>
+
+      <!-- C3 -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between hover:border-blue-500/50 transition">
+        <div>
+          <span class="text-[10px] font-black uppercase text-blue-400 bg-blue-950 px-2 py-0.5 rounded">Concept 3</span>
+          <h3 class="font-extrabold text-sm text-white mt-2">B2B Institutional Hub</h3>
+          <p class="text-[11px] text-slate-400 mt-1">Corporate navy styling with an instant bulk 50kg/90kg price calculator for schools and hotels.</p>
+          <div class="mt-3 text-[10px] text-blue-300 font-semibold">★ Ideal for Big Tenders</div>
+        </div>
+        <button onclick="switchMockup('mockup3.html', document.querySelectorAll('.mockup-tab')[2])" class="mt-4 w-full bg-slate-800 hover:bg-blue-600 hover:text-white text-white font-bold py-2 rounded-xl text-xs transition">
+          Preview Concept 3
+        </button>
+      </div>
+
+      <!-- C4 -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-500/50 transition">
+        <div>
+          <span class="text-[10px] font-black uppercase text-red-400 bg-red-950 px-2 py-0.5 rounded">Concept 4</span>
+          <h3 class="font-extrabold text-sm text-white mt-2">Community Kiosk</h3>
+          <p class="text-[11px] text-slate-400 mt-1">Vibrant colors from the physical signboard, Swahili toggle, and custom milling debe rates.</p>
+          <div class="mt-3 text-[10px] text-red-300 font-semibold">★ Authentic Local Identity</div>
+        </div>
+        <button onclick="switchMockup('mockup4.html', document.querySelectorAll('.mockup-tab')[3])" class="mt-4 w-full bg-slate-800 hover:bg-red-600 hover:text-white text-white font-bold py-2 rounded-xl text-xs transition">
+          Preview Concept 4
+        </button>
+      </div>
+
+      <!-- C5 -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between hover:border-emerald-500/50 transition">
+        <div>
+          <span class="text-[10px] font-black uppercase text-teal-400 bg-teal-950 px-2 py-0.5 rounded">Concept 5</span>
+          <h3 class="font-extrabold text-sm text-white mt-2">Smart Agri-Tech</h3>
+          <p class="text-[11px] text-slate-400 mt-1">Dark mode agri-tech UI with simulated real-time grain batch tracker and monthly unga subscriptions.</p>
+          <div class="mt-3 text-[10px] text-teal-300 font-semibold">★ Modern Tech Pioneer</div>
+        </div>
+        <button onclick="switchMockup('mockup5.html', document.querySelectorAll('.mockup-tab')[4])" class="mt-4 w-full bg-slate-800 hover:bg-teal-500 hover:text-slate-950 text-white font-bold py-2 rounded-xl text-xs transition">
+          Preview Concept 5
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOQ & PRICING SECTION -->
+  <section id="boq-section" class="max-w-6xl mx-auto px-4 py-16 border-t border-slate-800">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <span class="text-amber-400 font-black text-xs uppercase tracking-widest bg-amber-400/10 border border-amber-400/30 px-3.5 py-1 rounded-full">Website Launch Quotation</span>
+      <h2 class="text-2xl sm:text-3xl font-black text-white mt-2">Transparent Pricing for Tuesday Launch</h2>
+      <p class="text-slate-400 text-xs mt-1">Includes domain, hosting, development, WhatsApp ordering, and 30 days of support.</p>
+    </div>
+
+    <!-- Pricing Cards -->
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      
+      <!-- Option A -->
+      <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+        <div>
+          <span class="text-xs font-black uppercase text-slate-400 tracking-wider">Option A: Fast-Track Launchpad</span>
+          <h3 class="text-2xl font-black text-white mt-1">Tuesday Essential</h3>
+          <div class="my-4">
+            <span class="text-3xl font-black text-white">KES 35,000</span>
+            <span class="text-xs text-slate-400 block mt-0.5">Deposit: KES 17,500 • Balance on Tuesday: KES 17,500</span>
+          </div>
+
+          <ul class="text-xs space-y-2.5 text-slate-300 my-6">
+            <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> 1 Year <strong>.co.ke</strong> Domain Registration</li>
+            <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> 1 Year NVMe Cloud Hosting + Free SSL</li>
+            <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> 1 Professional Business Email Account</li>
+            <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> 4 Core Products Catalog (Jogoo, Kangata, Muthikore, Nchenga)</li>
+            <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> Direct WhatsApp Ordering Button</li>
+            <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> Custom Milling Price Rates Display</li>
+            <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> Google Map Pin in Kanyakine Town</li>
+            <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> Delivered and Live by <strong>Tuesday</strong></li>
+          </ul>
+        </div>
+
+        <a href="https://wa.me/254700000000?text=Hello,%20we%20approve%20Option%20A%20(KES%2035,000)%20for%20the%20Kanyakine%20Millers%20website." target="_blank"
+           class="block text-center bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider transition">
+          Choose Option A
+        </a>
+      </div>
+
+      <!-- Option B -->
+      <div class="bg-slate-900 border-2 border-emerald-500 rounded-3xl p-6 sm:p-8 relative flex flex-col justify-between shadow-2xl">
+        <span class="absolute -top-3 right-6 bg-emerald-500 text-slate-950 text-[10px] font-black uppercase px-3 py-1 rounded-full shadow">
+          Recommended Best Value
+        </span>
+        <div>
+          <span class="text-xs font-black uppercase text-emerald-400 tracking-wider">Option B: Growth & B2B Hub</span>
+          <h3 class="text-2xl font-black text-white mt-1">Professional Website</h3>
+          <div class="my-4">
+            <span class="text-3xl font-black text-amber-400">KES 48,000</span>
+            <span class="text-xs text-slate-400 block mt-0.5">Deposit: KES 24,000 • Balance on Tuesday: KES 24,000</span>
+          </div>
+
+          <ul class="text-xs space-y-2.5 text-slate-200 my-6">
+            <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> <strong>Everything in Option A</strong></li>
+            <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> 3 Business Emails (info@, sales@, orders@)</li>
+            <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> Vector Logo Digitization from the Signboard</li>
+            <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> Automated WhatsApp Cart Engine (pre-filled order text)</li>
+            <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> M-Pesa Buy Goods Till Display + STK Push Ready</li>
+            <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> Interactive Debe Custom Milling Calculator</li>
+            <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> School & Hotel B2B Tender RFQ Quotation Tool</li>
+            <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> Google Business Profile Setup & Local Search SEO</li>
+            <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> 30-Day Technical Maintenance Warranty</li>
+          </ul>
+        </div>
+
+        <a href="https://wa.me/254700000000?text=Hello,%20we%20approve%20Option%20B%20(KES%2048,000)%20for%20the%20Kanyakine%20Millers%20website." target="_blank"
+           class="block text-center bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-3.5 rounded-xl text-xs uppercase tracking-wider transition shadow-lg">
+          Choose Option B (Recommended)
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Phase 2 App Notice -->
+    <div class="max-w-4xl mx-auto mt-8 p-4 rounded-2xl bg-slate-900/60 border border-slate-800 text-center text-xs text-slate-400">
+      📱 <strong>Looking for the Mobile App?</strong> We have reserved a separate <strong>3-week development sprint</strong> for the dedicated Android Cashier POS, Weighbridge Intake, and Customer SMS App following Tuesday's website launch.
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 border-t border-slate-900 py-10 px-4 text-center text-xs text-slate-500">
+    <p>© 2026 Kanyakine Millers Digital Launchpad. Prepared for Client Sign-off.</p>
+    <p class="mt-1">Domain: <span class="text-amber-400 font-mono">kanyakinemillers.co.ke</span> | Launch Date: Tuesday</p>
+  </footer>
+
+  <!-- SCRIPT LOGIC FOR PREVIEW -->
+  <script>
+    let currentMockup = 'mockup1.html';
+
+    function switchMockup(url, btnElement) {
+      currentMockup = url;
+      document.getElementById('mockupIframe').src = url;
+      
+      const slug = url.replace('.html', '');
+      document.getElementById('activeUrlLabel').innerText = `kanyakinemillers.co.ke/${slug}`;
+
+      // Update tab active styling
+      document.querySelectorAll('.mockup-tab').forEach(tab => {
+        tab.classList.remove('bg-emerald-500', 'text-slate-950');
+        tab.classList.add('bg-slate-800', 'text-slate-200');
+      });
+
+      if (btnElement) {
+        btnElement.classList.remove('bg-slate-800', 'text-slate-200');
+        btnElement.classList.add('bg-emerald-500', 'text-slate-950');
+      }
+
+      window.scrollTo({ top: 120, behavior: 'smooth' });
+    }
+
+    function setViewport(mode) {
+      const wrapper = document.getElementById('previewWrapper');
+      const btnDesktop = document.getElementById('btn-desktop');
+      const btnTablet = document.getElementById('btn-tablet');
+      const btnMobile = document.getElementById('btn-mobile');
+
+      // reset buttons
+      [btnDesktop, btnTablet, btnMobile].forEach(btn => {
+        btn.classList.remove('bg-emerald-500', 'text-slate-950');
+        btn.classList.add('text-slate-300');
+      });
+
+      if (mode === 'desktop') {
+        wrapper.style.maxWidth = '100%';
+        wrapper.style.height = '760px';
+        btnDesktop.classList.add('bg-emerald-500', 'text-slate-950');
+        btnDesktop.classList.remove('text-slate-300');
+      } else if (mode === 'tablet') {
+        wrapper.style.maxWidth = '768px';
+        wrapper.style.height = '820px';
+        btnTablet.classList.add('bg-emerald-500', 'text-slate-950');
+        btnTablet.classList.remove('text-slate-300');
+      } else if (mode === 'mobile') {
+        wrapper.style.maxWidth = '390px';
+        wrapper.style.height = '800px';
+        btnMobile.classList.add('bg-emerald-500', 'text-slate-950');
+        btnMobile.classList.remove('text-slate-300');
+      }
+    }
+
+    function reloadIframe() {
+      const iframe = document.getElementById('mockupIframe');
+      iframe.src = iframe.src;
+    }
+
+    function openCurrentFullscreen() {
+      window.open(currentMockup, '_blank');
+    }
+  </script>
+</body>
+</html>
